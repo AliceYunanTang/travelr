@@ -3,8 +3,7 @@ class CreateSpots < ActiveRecord::Migration[5.0]
     create_table :spots do |t|
       t.string :title
       t.text :description
-      t.string :image
-
+      t.string :image     
       t.timestamps
     end
   end

@@ -18,7 +18,11 @@ ActiveRecord::Schema.define(version: 20170708032637) do
   create_table "addresses", force: :cascade do |t|
     t.string   "address_line"
     t.string   "suburb"
+    t.string   "state"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
     t.integer  "postcode_id"
+    t.integer  "spot_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
