@@ -14,7 +14,12 @@ u3 = User.create email: 'anusha@gmail.com' , name: 'Anusha' , password: 'chicken
 u4 = User.create email: 'alice@gmail.com' , name: 'Alice Tang' , password: 'chicken', is_admin:true
 
 puts 'Loading Spots ...'
-s1 = Spot.create title: 'Blue mountains' , description: 'Blue Mountains Scenic'
+s1 = Spot.create title: 'Blue mountains' , description: 'The Blue Mountains is a mountainous region and a mountain range located in New South Wales, Australia'
+s2 = Spot.create title: 'New Destination' , description: 'Welcome to the most exciting list of tourist attractions '
+s3 = Spot.create title: 'Brisbane' , description: 'Tourism in Brisbane is an important industry '
+s4 = Spot.create title: 'Pearl Harbour' , description: 'The Story Bridge is a Brisbane icon'
+s5 = Spot.create title: 'Kangaroo Point' , description: 'The Kangaroo Point Cliffs extend south from just north of the former Naval Bridge Depot to the former South Brisbane Dry Dock'
+s6 = Spot.create title: 'Lang Park' , description: 'Lang Park, also known as Suncorp Stadium, '
 
 
 Postcode.destroy_all
@@ -27,19 +32,13 @@ a1 = Address.create address_line: 'Blue mountains' , suburb: 'Katoomba', state: 
 
 Comment.destroy_all
 puts 'Loading Comment...'
-c1 = Comment.create title: 'Comment title' , description: 'This is describes the spot'
+c1 = Comment.create title: 'Comment title' , description: 'The Blue Mountains is a mountaino'
+c2 = Comment.create title: 'Comment title' , description: 'Welcome to the most exciting '
+c3 = Comment.create title: 'Comment title' , description: 'Lang Park, also known as Sunc'
 
 a1.spot = s1
 a1.postcode = p1
 a1.save
-
-
-
-
-
-
-
-
-
-
-puts 'Loading Comments...'
+c1.update spot_id: s1.id
+c2.update spot_id: s1.id
+c3.update spot_id: s1.id

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  
+  # get 'comments/show'
+  # get 'comments/index'
+  # get 'comments/create'
+  #
   root to: "users#new"
 
   get     '/login' => 'session#new'       # login form
@@ -7,6 +12,9 @@ Rails.application.routes.draw do
   delete  '/login' => 'session#destroy'  # logout (destroy session)
 
   resources :users
+  resources :comments
+  resources :spots
+
   #
   #    Prefix Verb   URI Pattern               Controller#Action
   #     users GET    /users(.:format)          users#index
