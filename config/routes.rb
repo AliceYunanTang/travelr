@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :app
+  resources :spots
+
+
   #
   #    Prefix Verb   URI Pattern               Controller#Action
   #     users GET    /users(.:format)          users#index
