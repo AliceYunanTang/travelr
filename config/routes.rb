@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
 
   
-  root to: "spots#index"
+  # get 'comments/show'
+  # get 'comments/index'
+  # get 'comments/create'
+  #
 
+  root to: "app#index"
+  
   get     '/login' => 'session#new'       # login form
   post    '/login' => 'session#create'   # check credentials & attempt login (set session)
   delete  '/login' => 'session#destroy'  # logout (destroy session)
 
   resources :users
+  resources :app
+  resources :comments
   resources :spots
+
 
   #
   #    Prefix Verb   URI Pattern               Controller#Action

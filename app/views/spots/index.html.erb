@@ -1,36 +1,50 @@
-
-
-  <% @spots.each do |s| %>
-
 <div class="container">
-    <div class="row">
-
-        <div class="col m10">
-            <div class="card teal darken-4 sticky-action">
-                <div class="card-image">
-                    <img src="http://www.fillmurray.com/300/300">
-                    <span class="card-title activator" style="width:100%"><%= s.title%><i class="material-icons right">more info slide up</i></span>
-                </div>
-                <div class="card-content white-text">
-                    <p><%= s.description%>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Detailed information<i class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is revealed once clicked on.</p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quaerat quas praesentium incidunt sed
-                        necessitatibus, placeat ipsa blanditiis, unde recusandae officiis eos tenetur! Explicabo quam accusamus alias
-                        adipisci iure? Vero.
-                    </p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Make a Comment</a>
+    <% @spots.each do |s| %>
+        <div class="row">
+            <div class="col m10">
+                <div class="card teal darken-4 sticky-action">
+                    <div class="card-image">
+                        <img src="http://www.fillmurray.com/300/300">
+                        <span class="card-title activator" style="width:100%"><%= s.title%><i class="material-icons right">more info slide up</i></span>
+                    </div>
+                    <div class="card-content white-text">
+                        <p><%= s.description%></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Detailed information<i class="material-icons right">close</i></span>
+                        <p>Here is some more information about this product that is revealed once clicked on.</p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quaerat quas praesentium incidunt sed
+                            necessitatibus, placeat ipsa blanditiis, unde recusandae officiis eos tenetur! Explicabo quam accusamus alias
+                            adipisci iure? Vero.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <button data-target="modal1" class="btn">Comment on Spot</button>
+                        <div id="modal1" class="modal">
+                          <div class="modal-content">
+                            <h5>Comments</h5>
+                            <div class="row input-field col s6">
+                              <%=form_for Comment.new  do |f| %>
+                                  <%= hidden_field_tag(:spot_id, s.id) %>
+                                  <%= text_area_tag(:description, "", size: "24x6") %>
+                                  <div class="modal-footer">
+                                    <%= f.submit nil, class: "btn btn-primary" , value: "Save"%>
+                                  </div>
+                              <% end %>
+                             </div>
+                          </div>
+                        </div>
+                       </div
+                    </div>
                 </div>
             </div>
         </div>
-
-    </div>
+    <%end%>
 </div>
 
-  <% end %>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.modal').modal();
+    })
+</script
