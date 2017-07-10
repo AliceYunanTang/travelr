@@ -1,18 +1,18 @@
+
+
+  <% @spots.each do |s| %>
+
 <div class="container">
     <div class="row">
+
         <div class="col m10">
             <div class="card teal darken-4 sticky-action">
                 <div class="card-image">
                     <img src="http://www.fillmurray.com/300/300">
-                    <span class="card-title activator" style="width:100%">Basic Card<i class="material-icons right">more_vert</i></span>
+                    <span class="card-title activator" style="width:100%"><%= s.title%><i class="material-icons right">more info slide up</i></span>
                 </div>
                 <div class="card-content white-text">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit. Aenean commodo ligula eget dolor. Aenean massa.
-                            Cum sociis natoque penatibus et magnis dis parturient
-                            montes, nascetur ridiculus mus. Donec quam felis,
-                            ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-                            consequat massa quis enim.
+                    <p><%= s.description%>
                     </p>
                 </div>
                 <div class="card-reveal">
@@ -29,5 +29,8 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
+  <% end %>
