@@ -25,10 +25,17 @@ s6 = Spot.create title: 'Lang Park' , description: 'Lang Park, also known as Sun
 Postcode.destroy_all
 puts 'Loading PostCodes...'
 p1 = Postcode.create postcode: '2780' , country: 'Aus'
+p2 = Postcode.create postcode: '2000' , country: 'Aus'
+p3 = Postcode.create postcode: '3000' , country: 'Aus'
+p4 = Postcode.create postcode: '4344' , country: 'Aus'
 
 Address.destroy_all
 puts 'Loading Addresses...'
 a1 = Address.create address_line: 'Blue mountains' , suburb: 'Katoomba', state: 'NSW' , longitude: 150.310 ,latitude: -33.710
+a2 = Address.create address_line: '12 Barangaroo' , suburb: 'Barangaroo', state: 'NSW' , longitude: 151.210 ,latitude:-33.860
+a3 = Address.create address_line: '34 Melbourne' , suburb: 'Melbourne', state: 'VIC' , longitude: 144.970 ,latitude:-37.810
+a4 = Address.create address_line: '333 Lockyer' , suburb: 'Lockyer', state: 'QLD' , longitude: 152.150 ,latitude: -27.590
+
 
 Comment.destroy_all
 puts 'Loading Comment...'
@@ -36,9 +43,24 @@ c1 = Comment.create title: 'Comment title' , description: 'The Blue Mountains is
 c2 = Comment.create title: 'Comment title' , description: 'Welcome to the most exciting '
 c3 = Comment.create title: 'Comment title' , description: 'Lang Park, also known as Sunc'
 
+# '2000', 'Barangaroo', 'NSW', -33.860, 151.210),
+# ('3000', 'Melbourne', 'VIC', -37.810, 144.970),
+# ('4344', 'Lockyer', 'QLD', -27.590, 152.150),
+
+
 a1.spot = s1
 a1.postcode = p1
 a1.save
+
+a2.postcode = p2
+a2.save
+
+a3.postcode = p3
+a3.save
+
+a4.postcode = p4
+a4.save
+
 c1.update spot_id: s1.id
 c2.update spot_id: s1.id
 c3.update spot_id: s1.id
