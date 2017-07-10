@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-
+  
+  # get 'comments/show'
+  # get 'comments/index'
+  # get 'comments/create'
+  #
 
   root to: "app#index"
   
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :app
+  resources :comments
   resources :spots
 
 

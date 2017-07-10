@@ -18,5 +18,6 @@ class SpotsController < ApplicationController
   end
 
   def destroy
+      @spot = Spot.find_by id: params[:id]      
   end
 end
