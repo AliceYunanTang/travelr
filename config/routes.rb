@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'maps/index'
+
+  get 'maps/edit'
+
+  get 'maps/create'
+
+  get 'maps/update'
+
+  get 'maps/destroy'
+
+  get 'maps/show'
+
+  get 'maps/new'
+
   root to: "users#new"
 
   get     '/login' => 'session#new'       # login form
