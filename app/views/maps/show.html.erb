@@ -5,8 +5,8 @@ $(document).ready(function(){
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([
        {
-         "lat":  address.latitude ,
-         "lng":  address.longitude
+         "lat":  <%= @address.latitude %> ,
+         "lng":  <%= @address.longitude %>
     }
     ]);
     handler.bounds.extendWith(markers);
