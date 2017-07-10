@@ -1,0 +1,48 @@
+
+    <% @spots.each do | spot | %>
+
+            
+                <div class="card teal darken-4 sticky-action">
+                    <div class="card-image">
+                        <img src="http://www.fillmurray.com/700/700">
+                        <span class="card-title activator" style="width:100%"><%= spot.title%><i class="material-icons right">more info slide up</i></span>
+                    </div>
+                    <div class="card-content white-text">
+                        <p><%= spot.description%></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Detailed information<i class="material-icons right">close</i></span>
+                        <p>Here is some more information about this product that is revealed once clicked on.</p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quaerat quas praesentium incidunt sed
+                            necessitatibus, placeat ipsa blanditiis, unde recusandae officiis eos tenetur! Explicabo quam accusamus alias
+                            adipisci iure? Vero.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <button data-target="modal-comments-<%= spot.id %>" class="btn">Comment on Spot</button>
+                    </div>
+                </div>
+
+
+        <div id="modal-comments-<%= spot.id %>" class="modal">
+          <div class="modal-content">
+            <h5>Comments</h5>
+            <div class="row input-field col s6">
+               <%=form_for Comment.new  do |f| %>
+                  <%= hidden_field_tag(:spot_id, spot.id) %>
+                   <%= text_area_tag(:description, "", size: "24x24") %>
+                   <div class="modal-footer">
+                       <%= f.submit nil, class: "btn btn-primary" , value: "Save"%>
+                   </div>
+               <% end %>
+             </div>
+          </div>
+        </div>
+    <%end%>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.modal').modal();
+    })
+</script
