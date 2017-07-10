@@ -14,6 +14,6 @@
 
 class User < ApplicationRecord
   has_secure_password
-  has_many :comments
   has_many :spots
+  has_many :comments, through: :spots
 end
