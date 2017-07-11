@@ -1,0 +1,18 @@
+
+<div class="container">
+    <h2>Spot Details</h2>
+    <hr>
+
+
+    <p>Spot: <%= @spot.title %> </p>
+
+    <p>description: <%= @spot.description %> </p>
+
+    <!-- <img src="<%#= @user.image %>" alt=""> -->
+    <%#= cl_image_tag @user.image %>
+
+    <% if @spot.image.present? %>
+      <%= cl_image_tag( @spot.image,
+      :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :effect=>"sharpen", :crop=>"thumb" )%>
+    <% end %>
+</div>
