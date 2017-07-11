@@ -1,11 +1,12 @@
 
+
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2"><%= @spot.title%></h1>
+        <h1 class="header center teal-text text-lighten-2 bla"><%= @spot.title%></h1>
         <div class="row center">
-          <h5 class="header col s12 light "><%= @spot.description %> </h5>
+          <h5 class="header col s12 light bla"><%= @spot.description %> </h5>
         </div>
         <div class="row center">
 
@@ -20,6 +21,8 @@
 
   <div class="container">
     <div class="section">
+
+  Here's what Travelr users had to say!
 
       <% @spot.comments.each do | comment | %>
 
