@@ -1,4 +1,5 @@
 <nav>
+  <div class="test">
     <% unless @current_user.present? %>
     <%= link_to 'Login', login_path %> | <%= link_to 'Signup', new_user_path %>
     <% else %>
@@ -7,6 +8,14 @@
       <%= link_to 'Logout', login_path, method: :delete %>
     </p>
     <% end %>
-
-    
+    </div>
+    <div>
+      <form>
+     <div class="input-field test2">
+       <input id="search" type="search" required>
+       <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+       <i class="material-icons">close</i>
+     </div>
+   </form>
+    </div>
 </nav>
