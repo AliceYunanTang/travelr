@@ -1,7 +1,7 @@
 
     <% @spots.each do | spot | %>
 
-            
+
                 <div class="card teal darken-4 sticky-action">
                     <div class="card-image">
                         <img src="http://www.fillmurray.com/700/700">
@@ -29,9 +29,13 @@
           <div class="modal-content">
             <h5>Comments</h5>
             <div class="row input-field col s6">
-               <%=form_for Comment.new  do |f| %>
+               <%#=form_for Comment.new  do |f| %>
+               <%= form_for Comment.new, html: {multipart: true} do |f| %>
                   <%= hidden_field_tag(:spot_id, spot.id) %>
                    <%= text_area_tag(:description, "", size: "24x24") %>
+                   <%= f.label :description %>
+                   <%#= f.text_field :description %>
+                   <%= f.cl_image_upload :image %>
                    <div class="modal-footer">
                        <%= f.submit nil, class: "btn btn-primary" , value: "Save"%>
                    </div>

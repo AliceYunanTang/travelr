@@ -4,23 +4,29 @@ class CommentsController < ApplicationController
   end
 
   def index
+    @comments = Comment.where spot_id: params["spot_id"]
   end
 
   def create
-      @comment = Comment.new comment_params
-      # desc = params["description"]
-      # spot_id = params["spot_id"]
+      # @comment = Comment.new #comment_params
+      desc = params["description"]
+      spot_id = params["spot_id"]
+
+      @comment = Comment.new description:desc, spot_id:spot_id
+
       if params[:file].present?
         req = Cloudinary::Uploader.upload(params[:file])
         @comment.image = req['public_id']
+
       else
         @comment.image = "v1499518624/sljlppoeqzc8tmcwylrq.jpg"
+
       end
 
       @comment.spot_id = params["spot_id"]
 
       if @comment.save
-        redirect_to comments_path
+        redirect_to spot_comments_path( params["spot_id"] )
       end
 
       # Comment.create description: desc , spot_id: spot_id
