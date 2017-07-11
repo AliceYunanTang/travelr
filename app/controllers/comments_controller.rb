@@ -2,15 +2,14 @@ class CommentsController < ApplicationController
   def show
   end
 
-  def index
-      @comments = Comment.all
+  def index    
   end
 
   def create
       desc = params["description"]
       spot_id = params["spot_id"]
       Comment.create description: desc , spot_id: spot_id
-      redirect_to comments_path
+      redirect_to root_path
   end
 
   private

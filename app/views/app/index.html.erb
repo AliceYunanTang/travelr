@@ -1,16 +1,28 @@
- <div class="row col12">
+<div class="container">
+ <div class="row">
     <div class="row">
-         <div class="col l12"><p>Carousel section</p></div>
+         <div class="col m9">
+               <div class="carousel">
+                 <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+                 <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+                 <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+                 <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+                 <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+               </div>
+         </div>
+         <div class="col="m3""></div>
     </div>
-
     <div class="row">
-        <div class="col l9">
-            <p>Spots section</p>
-            <hr>
-            This section will contain all the favourite spots
-            <hr>
-            And this will contain the corresponding comments that have been posted
+        <div class="col m9">
+             <%= render partial: 'spots/spots' %>
         </div>
-        <div class="col l3"><p>Google Map section</p></div>
+        <div class="col m3"> <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a></div>
     </div>
  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+     $('.carousel').carousel();
+   });
+</script>
