@@ -1,2 +1,18 @@
-<h1>Comments#show</h1>
-<p>Find me in app/views/comments/show.html.erb</p>
+
+<div class="container">
+    <h2>Comment Details</h2>
+    <hr>
+
+
+
+
+    <p>description: <%= @comment.description %> </p>
+
+    <!-- <img src="<%#= @user.image %>" alt=""> -->
+    <%#= cl_image_tag @user.image %>
+
+    <% if @comment.image.present? %>
+      <%= cl_image_tag( @comment.image,
+      :width=>400, :aspect_ration=>"2.5", :crop=>"crop" )%>
+    <% end %>
+</div>

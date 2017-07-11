@@ -1,0 +1,13 @@
+<%= form_for @comment, html: {multipart: true} do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+
+  <%= f.label :image %>
+  <%= f.cl_image_upload :image %>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>

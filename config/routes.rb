@@ -15,11 +15,13 @@ Rails.application.routes.draw do
   resources :users
   resources :app
 
-  resources :comments
+  resources :spots do
+    resources :comments
+  end
 
   # route to show comments for a specific spot, by including spot ID
   get "/spots/:spot_id/comments" => "comments#index", as: 'spot_comments'
-  
+
 
   resources :spots
 

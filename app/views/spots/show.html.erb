@@ -13,6 +13,6 @@
 
     <% if @spot.image.present? %>
       <%= cl_image_tag( @spot.image,
-      :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :effect=>"sharpen", :crop=>"thumb" )%>
+      :width=>700, :aspect_ration=>"2.5", :crop=>"crop" )%>
     <% end %>
 </div>
