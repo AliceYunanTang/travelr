@@ -32,6 +32,8 @@ p4 = Postcode.create postcode: '4344' , country: 'Aus'
 Address.destroy_all
 puts 'Loading Addresses...'
 a1 = Address.create address_line: 'Blue mountains' , suburb: 'Katoomba', state: 'NSW' , longitude: 150.310 ,latitude: -33.710
+# a1 = Address.create address_line: 'Blue mountains' , suburb: 'Katoomba', state: 'NSW' , longitude: 150.310 ,latitude: -33.710
+# a1 = Address.create address_line: 'Blue mountains' , suburb: 'Katoomba', state: 'NSW' , longitude: 150.310 ,latitude: -33.710
 a2 = Address.create address_line: '12 Barangaroo' , suburb: 'Barangaroo', state: 'NSW' , longitude: 151.210 ,latitude:-33.860
 a3 = Address.create address_line: '34 Melbourne' , suburb: 'Melbourne', state: 'VIC' , longitude: 144.970 ,latitude:-37.810
 a4 = Address.create address_line: '333 Lockyer' , suburb: 'Lockyer', state: 'QLD' , longitude: 152.150 ,latitude: -27.590
