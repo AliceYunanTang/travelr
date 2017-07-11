@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   end
 
   def index
-      @comments = Comment.all
   end
 
   def create
