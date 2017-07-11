@@ -11,12 +11,7 @@ $(document).ready(function() {
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
-<<<<<<< HEAD
     handler.fitMapToBounds();
-=======
-    handler.fitMapToBounds();    
->>>>>>> 510182c4e1bc6cbb77afa835a4a16327a860fa1d
-
    });
 });
 </script>
