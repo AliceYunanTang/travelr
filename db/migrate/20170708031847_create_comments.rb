@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :description
       t.string :image
-
+      t.integer :spot_id
       t.timestamps
     end
   end

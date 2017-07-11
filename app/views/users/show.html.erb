@@ -9,5 +9,9 @@
 
     <p>Name: <%= @user.name %> </p>
 
-    <img src="<%= @user.image %>" alt="">
+    <!-- <img src="<%= @user.image %>" alt=""> -->
+    <%#= cl_image_tag @user.image %>
+    <%= cl_image_tag( @user.image,
+    :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :effect=>"sharpen", :crop=>"thumb" )%>
+
 </div>
