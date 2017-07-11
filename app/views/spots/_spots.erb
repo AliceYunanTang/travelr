@@ -1,22 +1,40 @@
 
     <% @spots.each do | spot | %>
 
-            
+
                 <div class="card teal darken-4 sticky-action">
                     <div class="card-image">
                         <img src="http://www.fillmurray.com/700/700">
-                        <span class="card-title activator" style="width:100%"><%= spot.title%><i class="material-icons right">more info slide up</i></span>
+                        <span class="card-title activator" style="width:100%"><%= spot.title%><i class="material-icons right">See who has commented on this spot</i></span>
                     </div>
                     <div class="card-content white-text">
                         <p><%= spot.description%></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Detailed information<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is revealed once clicked on.</p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quaerat quas praesentium incidunt sed
-                            necessitatibus, placeat ipsa blanditiis, unde recusandae officiis eos tenetur! Explicabo quam accusamus alias
-                            adipisci iure? Vero.
+                        <span class="card-title grey-text text-darken-4">User Comments<i class="material-icons right">close</i></span>
+
+
+
+                          <ul>
+
+
+
+                          <% spot.comments.each do |comm| %>
+                          <li>Description:  <%=  comm.description[0..60]%>...
+                          <%= link_to 'read more', spot %>
+
+                            <br>
+                          By  <%=  comm.user.name  %>
+</li>
+                          <% end %>
+                          </ul>
+
+
+
+
+
+
+
                         </p>
                     </div>
                     <div class="card-action">

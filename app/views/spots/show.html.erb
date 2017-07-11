@@ -1,0 +1,40 @@
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2"><%= @spot.title%></h1>
+        <div class="row center">
+          <h5 class="header col s12 light "><%= @spot.description %> </h5>
+        </div>
+        <div class="row center">
+
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="http://www.australia.com/content/australia/en/places/blue-mountains/experiences-attractions/_jcr_content/image.adapt.985.HIGH.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <% @spot.comments.each do | comment | %>
+
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text">
+               <img src="https://thumb10.shutterstock.com/display_pic_with_logo/3767078/349959383/stock-vector-vector-user-icon-avatar-sign-orange-hair-faceless-geek-glasses-blue-shirt-purple-shirt-349959383.jpg" alt="" class="circle responsive-img"></i></h2>
+            <h5 class="center"><%= comment.user.name %></h5>
+
+            <p class="light"><%= comment.description %>
+
+            </p>
+          </div>
+        </div>
+<% end %>

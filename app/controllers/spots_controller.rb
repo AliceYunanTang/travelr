@@ -23,7 +23,9 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.all    
+    @spots = Spot.all
+    # @spots :include => (:comments)
+    # @spots = Spot.find(:all, :includes => :comment)
   end
 
   def destroy
