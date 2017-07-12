@@ -10,6 +10,7 @@
         id: 'map'
       }
     }, function () {
+
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
@@ -24,8 +25,7 @@
         google.maps.event.addListener(m.serviceObject, 'mouseout', function(event) {
           $('.search-results-list > a').eq(i).removeClass('highlight');
         });
-
-      })
+    });
 
     });
 
@@ -35,6 +35,7 @@
        function () {
          // get index of hovered <a> element to let us index markers[]
          var index = $(this).index();
+         debugger;
          markers[index].serviceObject.setIcon({
            url: 'http://maps.google.com/mapfiles/marker_green.png'
          });
@@ -53,12 +54,10 @@
 </script>
 
 <div class="row">
-
   <div class="col m6">
-      <div id="map"></div>
+    <div id="map"></div>
 
     <form action="/maps/show" method="get">
-  
         <input type="text" name="address" placeholder="Enter Address" class="address-search">
         <button class="btn waves-effect waves-light">Search Address</button>
     </form>
@@ -67,7 +66,6 @@
   <div class="col m6">
     <div class="collection search-results-list">
       <% @address.each do |add| %>
-
          <!-- <div class="collection-item avatar"> -->
            <a href="<%= spot_path( add.spot.id ) %>" class="collection-item avatar">
            <img src="http://fillmurray.com/200/200" alt="" class="circle">

@@ -32,7 +32,7 @@ class MapsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@address) do |addr, marker|
         marker.lat addr.latitude
         marker.lng addr.longitude
-        marker.infowindow "<b>#{addr.spot.title}</b><br><p>#{ addr.spot.description }</p><br><img src=\"http://fillmurray.com/100/100\"> "
+        marker.infowindow "<b>#{addr.spot.title}</b><br><p>#{ addr.spot.description }</p><br><img src=\"http://fillmurray.com/100/100\"><a href='/spots/#{addr.spot_id}'>Details Page</a>"
     end
   end
 
