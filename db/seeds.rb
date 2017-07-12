@@ -42,3 +42,16 @@ a1.save
 c1.update spot_id: s1.id
 c2.update spot_id: s1.id
 c3.update spot_id: s1.id
+
+#associate the spot to the user record
+s1.update user_id: u1.id
+s2.update user_id: u2.id
+s3.update user_id: u3.id
+s4.update user_id: u4.id
+s5.update user_id: u3.id
+s6.update user_id: u4.id
+
+#associate the comment to the user record
+c1.update user_id: u1.id
+c2.update user_id: u2.id
+c3.update user_id: u3.id
