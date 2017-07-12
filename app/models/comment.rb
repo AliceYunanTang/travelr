@@ -13,6 +13,6 @@
 
 class Comment < ApplicationRecord
     belongs_to  :spot , optional: true
-    # belongs_to  :user , optional: true, through: :spots
-    delegate :user, :to => :spot
+    belongs_to  :user , optional: true
+    # delegate :user, :to => :spot
  end
