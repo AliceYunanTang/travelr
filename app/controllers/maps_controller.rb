@@ -2,7 +2,7 @@ class MapsController < ApplicationController
 
 
   def index
-    @address = Address.first(5)
+    @address = Address.all
     @hash = Gmaps4rails.build_markers(@address) do |addr, marker|
         marker.lat addr.latitude
         marker.lng addr.longitude
@@ -28,8 +28,7 @@ class MapsController < ApplicationController
     else
       @address = Address.all.limit(4)
     end
-
-
+    
     @hash = Gmaps4rails.build_markers(@address) do |addr, marker|
         marker.lat addr.latitude
         marker.lng addr.longitude
