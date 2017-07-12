@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
 
   before_action :check_if_logged_in, only: [:new, :create, :edit, :update]
 
+  before_action :check_if_admin, only: [ :admin_index ]
+
   def get_comment
     # @spot = Spot.find params["spot_id"]
     # @comments = @spot.comments
@@ -21,6 +23,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def admin_index
+    @comments = Comment.all
+  end
+
   def index
     @comments = Comment.where spot_id: params["spot_id"]
   end
@@ -30,7 +36,7 @@ class CommentsController < ApplicationController
       desc = params["description"]
       spot_id = params["spot_id"]
 
-      @comment = Comment.new description:desc, spot_id:spot_id
+      @comment = Comment.new description:desc, spot_id:spot_id, user_id:@current_user.id
 
       if params[:file].present?
         req = Cloudinary::Uploader.upload(params[:file])
@@ -69,7 +75,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:description , :spot_id)
+    params.require(:comment).permit(:description , :spot_id, :user_id)
   end
 
 end
