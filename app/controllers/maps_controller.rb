@@ -28,10 +28,11 @@ class MapsController < ApplicationController
     else
       @address = Address.all.limit(4)
     end
-    
+
     @hash = Gmaps4rails.build_markers(@address) do |addr, marker|
         marker.lat addr.latitude
         marker.lng addr.longitude
+        marker.infowindow "<b>#{addr.spot.title}</b><br><p>#{ addr.spot.description }</p><br><img src=\"http://fillmurray.com/100/100\"> "
     end
   end
 

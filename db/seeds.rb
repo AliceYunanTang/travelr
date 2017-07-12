@@ -14,12 +14,14 @@ u3 = User.create email: 'anusha@gmail.com' , name: 'Anusha' , password: 'chicken
 u4 = User.create email: 'alice@gmail.com' , name: 'Alice Tang' , password: 'chicken', is_admin:true
 
 puts 'Loading Spots ...'
-s1 = Spot.create title: 'Blue mountains' , description: 'The Blue Mountains is a mountainous region and a mountain range located in New South Wales, Australia'
-s2 = Spot.create title: 'New Destination' , description: 'Welcome to the most exciting list of tourist attractions '
-s3 = Spot.create title: 'Brisbane' , description: 'Tourism in Brisbane is an important industry '
-s4 = Spot.create title: 'Pearl Harbour' , description: 'The Story Bridge is a Brisbane icon'
-s5 = Spot.create title: 'Kangaroo Point' , description: 'The Kangaroo Point Cliffs extend south from just north of the former Naval Bridge Depot to the former South Brisbane Dry Dock'
-s6 = Spot.create title: 'Lang Park' , description: 'Lang Park, also known as Suncorp Stadium, '
+s1 = Spot.create title: 'Blue mountains' , description: 'The Blue Mountains is a mountainous region and a mountain range located in New South Wales, Australia', user: u1
+s2 = Spot.create title: 'New Destination' , description: 'Welcome to the most exciting list of tourist attractions ', user: u2
+s3 = Spot.create title: 'Brisbane' , description: 'Tourism in Brisbane is an important industry ', user: u3
+s4 = Spot.create title: 'Pearl Harbour' , description: 'The Story Bridge is a Brisbane icon', user: u4
+s5 = Spot.create title: 'Kangaroo Point' , description: 'The Kangaroo Point Cliffs extend south from just north of the former Naval Bridge Depot to the former South Brisbane Dry Dock', user: u1
+s6 = Spot.create title: 'Lang Park' , description: 'Lang Park, also known as Suncorp Stadium', user: u2
+
+
 
 
 Postcode.destroy_all
@@ -54,12 +56,15 @@ a1.spot = s1
 a1.postcode = p1
 a1.save
 
+a2.spot = s2
 a2.postcode = p2
 a2.save
 
+a3.spot = s3
 a3.postcode = p3
 a3.save
 
+a4.spot = s4
 a4.postcode = p4
 a4.save
 
