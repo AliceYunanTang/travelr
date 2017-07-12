@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
 
   before_action :get_comment,       only: [ :show, :edit, :update ]
-  before_action :check_if_admin, except: [:show, :index]
+
+  before_action :check_if_logged_in, only: [:new, :create, :edit, :update]
 
   def get_comment
-    @spot = Spot.find params["spot_id"]
-    @comment = @spot.comments.find(params[:id])
-    @comments = @spot.comments
+    # @spot = Spot.find params["spot_id"]
+    # @comments = @spot.comments
+    @comment = Comment.find(params[:id])
   end
 
   def show

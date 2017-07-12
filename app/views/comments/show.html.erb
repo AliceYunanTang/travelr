@@ -1,6 +1,8 @@
 
 <div class="container">
     <h2>Comment Details</h2>
+    Spot: <%= @comment.spot.title %>
+    <%= link_to "Go to Spot", spot_path(@comment.spot) %>
     <hr>
 
 
