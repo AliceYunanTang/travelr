@@ -1,0 +1,25 @@
+// Place all the styles related to the maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.address-search{
+  width: 75% !important;
+}
+
+#map{
+  width: 100%;
+  height: 500px;
+}
+
+
+.highlight{
+  background-color: #eee !important;
+}
+
+.collection-item.avatar p{
+  color: #000;
+}
+
+.collection-item.avatar:hover{
+  background-color: #eee;
+}

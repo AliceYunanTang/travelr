@@ -1,0 +1,80 @@
+<script>
+
+  var markers = [];
+
+  $(document).ready(function () {
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+      provider: {},
+      internal: {
+        id: 'map'
+      }
+    }, function () {
+
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(4);
+
+      markers.forEach(function(m, i){
+        console.log(m, i);
+        google.maps.event.addListener(m.serviceObject, 'mouseover', function(event) {
+          $('.search-results-list > a').eq(i).addClass('highlight');
+
+        });
+        google.maps.event.addListener(m.serviceObject, 'mouseout', function(event) {
+          $('.search-results-list > a').eq(i).removeClass('highlight');
+        });
+    });
+
+    });
+
+    // Highlight map marker when list item is hovered
+    $('.search-results-list > a').hover(
+       // mouse in
+       function () {
+         // get index of hovered <a> element to let us index markers[]
+         var index = $(this).index();
+         markers[index].serviceObject.setIcon({
+           url: 'http://maps.google.com/mapfiles/marker_green.png'
+         });
+       },
+       // mouse out
+       function () {
+         var index = $(this).index();
+         markers[index].serviceObject.setIcon({
+           url: 'http://maps.google.com/mapfiles/marker.png'
+         });
+       }
+
+     );
+
+  });
+</script>
+
+<div>
+  <div class="col m6">
+    <div id="map"></div>
+
+    <form action="/maps/show" method="get">
+        <input type="text" name="address" placeholder="Enter Address" class="address-search">
+        <button class="btn waves-effect waves-light">Search Address</button>
+    </form>
+  </div><!-- left col -->
+
+  <div class="col m4">
+    <div class="collection search-results-list">
+      <% @address.each do |add| %>
+         <!-- <div class="collection-item avatar"> -->
+           <a href="<%= spot_path( add.spot.id ) %>" class="collection-item avatar">
+           <img src="http://fillmurray.com/200/200" alt="" class="circle">
+           <span class="title"><%= add.spot.title %></span>
+           <p><%= add.spot.description %></p>
+           <div href="#!" class="secondary-content"><i class="material-icons">grade</i></div>
+         </a>
+         <!-- </div> -->
+      <% end %>
+    </div>
+  </div><!-- right col -->
+
+</div><!-- row -->
