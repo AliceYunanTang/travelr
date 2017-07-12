@@ -1,0 +1,12 @@
+<div class="container">
+    TODO - DO the screen Presentation
+    <ul>
+      <% @comments.each do |comment| %>
+        <li><%= comment.title%>  - <%= comment.description%>
+          <%= link_to "Show", comment %>
+          <%= link_to 'Edit', edit_comment_path(comment) %>
+          <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+      <% end %>
+    </ul>
+</div>

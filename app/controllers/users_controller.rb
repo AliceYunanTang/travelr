@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :get_user,       only: [ :show, :edit, :update ]
-  before_action :check_if_admin, only: [ :index ]
+  before_action :check_if_admin, only: [ :index, :destroy ]
 
   before_action :check_if_logged_in, only: [ :mixtape_create ]
 
@@ -60,6 +60,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    User.find( params["id"] ).destroy
+    redirect_to users_path
   end
 
   private
