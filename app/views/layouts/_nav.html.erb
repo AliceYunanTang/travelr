@@ -1,49 +1,59 @@
-<div class="container">
+<!-- <div class="container"> -->
 
-    <div class="row">
+    <!-- <div class="row"> -->
         <!-- Dropdown Structure -->
         <ul id="dropdown1" class="dropdown-content">
-          <li><a href="/users">Users</a></li>
-          <li><a href="/spots">Spots</a></li>
-          <li><a href="/comments/admin">Comments</a></li>
-        </ul>
-        <nav>
-          <div class="nav-wrapper">
-            <a href="/app" class="brand-logo">Home</a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="/maps/show">Google Map Search</a></li>
-              <!-- Dropdown Trigger -->
-              <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
+              <li><a href="/users">Users</a></li>
+              <li><a href="/spots">Spots</a></li>
+              <li><a href="/comments/admin">Comments</a></li>
             </ul>
-          </div>
-        </nav>
+            <nav>
+              <div class="nav-wrapper">
+                <ul>
+                  <li>    <a href="#" data-activates="slide-out" class="button-collapse">Hey <%=@current_user.name%>!</a></li>
+                  <li><a href="/app" >Home</a></li>
+
+                </ul>
+
+                <ul class="right-float-test">
+                  <li><a href="/maps/show">Google Map Search</a></li>
+                  <!-- Dropdown Trigger -->
+                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+              </div>
+            </nav>
 
     </div>
 
 
     <div class="row">
         <div class="col m1">
-            <a href="#" data-activates="slide-out" class="button-collapse">Profile</a>
-            <ul id="slide-out" class="side-nav">
-                <li>
-                    <div class="user-view">
-                      <div class="background">
-                        <%= image_tag("office.jpg") %>
-                      </div>
+
+          <ul id="slide-out" class="side-nav">
+    <li>
+    <div class="user-view">
+      <div class="background signs">
+        <%= image_tag("http://i.imgur.com/tmzoXxT.jpg") %>
+      </div>
                       <!-- <a href="#!user"><%=image_tag("#{@current_user.image}" , class: "circle")%> </a> -->
-                      <%= cl_image_tag @current_user.image , class: "circle" %>
-                      <a href="#!name"><span class="white-text name">Welcome, <%=@current_user.name%></span></a>
-                      <a href="#!email"><span class="white-text email"><%=@current_user.email%></span></a>
-                    </div>
-                </li>
-                <li><a href="/users/<%=@current_user.id%>/edit"><i class="material-icons">Edit</i>Profile</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="subheader">Login/Logout</a></li>
-                <li><%= link_to 'Logout', login_path, method: :delete , class: "waves-effect"%></li>
-            </ul>
+                      <%= cl_image_tag( @current_user.image,
+  :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :effect=>"shadow", :crop=>"thumb" )%>
+
+
+  <a href="#!name"><span class="black-text name">Welcome, <%=@current_user.name%></span></a>
+<a href="#!email"><span class="black-text email"><%=@current_user.email%></span></a>
+</div>
+</li>
+
+<li><a href="/users/<%=@current_user.id%>/edit">Edit Your Profile</a></li>
+<li><div class="divider"></div></li>
+
+<li><%= link_to 'Logout', login_path, method: :delete , class: "waves-effect"%></li>
+</ul>
         <div>
     </div>
 </div>
+
 <script>
 $(document).ready(function(){
      $(".button-collapse").sideNav();

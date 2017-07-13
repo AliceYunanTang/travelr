@@ -17,3 +17,15 @@
  body {
  	background-color: #92594d;
  }
+
+ .right-float-test{
+  float: right;
+}
+
+.signs{
+ opacity: .5;
+}
+
+nav{
+  margin-bottom: 20px;
+}
