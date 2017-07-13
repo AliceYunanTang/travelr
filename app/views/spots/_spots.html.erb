@@ -12,12 +12,20 @@
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Detailed information<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is revealed once clicked on.</p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quaerat quas praesentium incidunt sed
-                            necessitatibus, placeat ipsa blanditiis, unde recusandae officiis eos tenetur! Explicabo quam accusamus alias
-                            adipisci iure? Vero.
-                        </p>
+                        <ul>
+
+
+
+              <% spot.comments.each do |comm| %>
+              <li>Description:  <%=  comm.description[0..60]%>...
+              <%= link_to 'read more', spot %>
+
+                <br>
+              By  <%=  comm.user.name  %>
+</li>
+              <% end %>
+              </ul>
+
                     </div>
                     <div class="card-action">
                         <button data-target="modal-comments-<%= spot.id %>" class="btn">Comment on Spot</button>
