@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
       @comment.spot_id = params["spot_id"]
 
       if @comment.save
-        redirect_to spot_comments_path( params["spot_id"] )
+        redirect_to spot_path( params["spot_id"] )
       end
 
       # Comment.create description: desc , spot_id: spot_id
@@ -70,7 +70,7 @@ class CommentsController < ApplicationController
   def destroy
     Comment.find( params["id"] ).destroy
 
-    redirect_to spot_comments_path( params["spot_id"] )
+    redirect_to root_path
   end
 
   private

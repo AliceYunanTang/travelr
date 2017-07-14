@@ -30,7 +30,7 @@
   <div class="container">
     <div class="section">
 
-  Here's what Travelr users had to say!
+  <h3>Here's what Travelrs had to say!</h3>
 
       <% @spot.comments.each do | comment | %>
 
@@ -45,7 +45,7 @@
                </i></h2>
 
 
-      By <%= comment.user.name %></p>
+    <b>  By <%= comment.user.name %></p> </b>
       <p class="light"><%= comment.description %></p>
 
 

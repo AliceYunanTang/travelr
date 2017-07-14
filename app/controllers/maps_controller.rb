@@ -22,11 +22,24 @@ class MapsController < ApplicationController
   end
 
   def show
+
     @address = params["address"] ||''
     if params[:address].present?
       @address = Address.where('address_line ILIKE ?', "%#{ params[:address] }%")
+    # binding.pry
+
+
+
+    elsif params[:street_address].present?
+      @address = Address.near(params[:street_address], params[:radius], :units => :km)
+
+    # elsif Address.near(params[:street_address], params[:radius], :units => :km).length === 0?
+        # @address = Address.last
+
+
+
     else
-      @address = Address.all.limit(4)
+      @address = Address.all.limit(20)
     end
 
     @hash = Gmaps4rails.build_markers(@address) do |addr, marker|

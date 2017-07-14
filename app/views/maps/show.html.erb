@@ -48,7 +48,7 @@
        }
 
      );
-
+$('select').material_select();
   });
 </script>
 
@@ -57,13 +57,30 @@
     <div id="map"></div>
 
     <form action="/maps/show" method="get">
-        <input type="text" name="address" placeholder="Enter Address" class="address-search">
+        <input type="text" name="address" placeholder="Enter Keyword" class="address-search">
+        <button class="btn waves-effect waves-light">Keyword Search</button>
+    </form>
+
+
+    <form action="/maps/show" method="get">
+        <input type="text" name="street_address" placeholder="Find Spots in an area" class="address-search">
+        <select name="radius" id="hello">
+          <option value="1">1 km</option>
+          <option value="5">5 km</option>
+          <option value="10">10 km</option>
+          <option value="100">100 km</option>
+          <option value="100000">100000 km</option>
+
+        </select>
         <button class="btn waves-effect waves-light">Search Address</button>
     </form>
+
+
   </div><!-- left col -->
 
   <div class="col m4">
     <div class="collection search-results-list">
+    
       <% @address.each do |add| %>
          <!-- <div class="collection-item avatar"> -->
            <a href="<%= spot_path( add.spot.id ) %>" class="collection-item avatar">
