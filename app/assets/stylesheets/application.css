@@ -16,8 +16,20 @@
 
  body {
  	background-color: #92594d;
-  font-family: font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
  }
+
+#slider-button{
+ display: inline-block;
+ margin-left: 20px;
+ margin-right: 10px;
+}
+
+#welcome-message {
+    display: inline-block;
+    line-height: 26px;
+    font-size: 16px;
+}
 
  .right-float-test{
   float: right;
