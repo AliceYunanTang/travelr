@@ -1,24 +1,9 @@
-# README
+# Travelr - General Assembly Project 2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+Travelr is a full stack web application where users can upload pictures and post comment on each spot. It is a group project with 4 people.
 
-Things you may want to cover:
+Here is the live site [check it out](https://travelr-22.herokuapp.com/)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Built with
+HTML5, CSS3, JavaScript, jQuery, Ruby on Rails, Materialize framework
